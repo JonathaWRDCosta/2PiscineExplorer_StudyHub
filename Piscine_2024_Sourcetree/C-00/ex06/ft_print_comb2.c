@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonatha <jonatha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 18:11:50 by jonatha           #+#    #+#             */
-/*   Updated: 2024/01/05 02:45:38 by jonatha          ###   ########.fr       */
+/*   Created: 2024/01/05 02:46:31 by jonatha           #+#    #+#             */
+/*   Updated: 2024/01/05 03:22:00 by jonatha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,40 +17,37 @@ void ft_putchar(char c)
   write(1, &c, 1);
 }
 
-void ft_print_comb(void)
+void ft_print_comb2(void)
 {
   int i;
   int j;
-  int k;
 
-  i = '0';
-  while (i <= '7')
+  i = 0;
+  while (i <= 98)
   {
     j = i + 1;
+    while (j <= 99)
     {
-      while (j <= '8')
+      ft_putchar((i / 10) + '0');
+      ft_putchar((i % 10) + '0');
+      ft_putchar(' ');
+      ft_putchar((j / 10) + '0');
+      ft_putchar((j % 10) + '0');
+      if (i != 98)
       {
-        k = j + 1;
-        while (k <= '9')
-        {
-          ft_putchar(i);
-          ft_putchar(j);
-          ft_putchar(k);
-          if (i != '7')
-            write(1, ", ", 2);
-          k++;
-        }
-        j++;
+        ft_putchar(',');
+        ft_putchar(' ');
       }
-      i++;
+      j++;
     }
+    i++;
   }
 }
 
 /*
 int main(void)
 {
-  ft_print_comb();
+  ft_print_comb2();
   return(0);
 }
 */
